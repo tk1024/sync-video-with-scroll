@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 </head>
-<body style="margin: 0;">
-  <video style="position: fixed; width: 100%;" id="video" src="./video.mp4" muted preload="auto" playsinline></video>
-  <div><script>let i = 0;while(i++ < 10000){document.write(`${i}<br>`)}</script></div>
-<script>
 
-const video = document.getElementById("video")
-window.addEventListener("scroll", (ev) => {
-  video.currentTime = window.scrollY/1000
-}, { passive: true })
-</script>
+<body style="margin: 0;">
+  <video style="position: fixed; width: 100%;" id="video" src="./video.mp4" muted preload="auto" playsinline
+    autoplay></video>
+  <div>
+    <script>
+      let i = 0;
+      while (i++ < 10000) {
+        document.write(`${i}<br>`)
+      }
+    </script>
+  </div>
+  <script>
+    const video = document.getElementById("video")
+    setTimeout(() => video.pause())
+    window.addEventListener("scroll", (ev) => {
+      video.currentTime = window.scrollY / 1000
+    }, {
+      passive: true
+    })
+  </script>
 </body>
+
 </html>
