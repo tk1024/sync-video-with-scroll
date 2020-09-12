@@ -20,7 +20,12 @@
   </div>
   <script>
     const video = document.getElementById("video")
-    setTimeout(() => video.pause())
+    const timerId = setInterval(() => {
+      if (!video.paused) {
+        video.pause()
+        clearInterval(timerId)
+      }
+    }, 100)
     window.addEventListener("scroll", (ev) => {
       video.currentTime = window.scrollY / 1000
     }, {
